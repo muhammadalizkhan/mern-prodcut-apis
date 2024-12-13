@@ -4,6 +4,7 @@ console.log('Hello, world!');
 const app = express();
 
 
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send('Hello, world!');
@@ -11,8 +12,11 @@ app.get('/', (req, res) => {
 
 
 app.post('/api/products', (req, res) => {
-    console.log(req.body);
-    res.send('req.body');
+    try {
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 });
 
 
